@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
+<p class="btn me-md-2"><a class="btn btn-outline-primary" href="/app/{{ path }}">Back</a></p>
+    <form method="post" class="d-flex flex-column justify-content-center align-items-center me-md-2">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-outline-primary me-md-2">{{ btn_name }}</button>
+    </form>
+{% endblock content %}

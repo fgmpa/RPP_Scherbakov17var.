@@ -1,0 +1,12 @@
+
+def find_min_elem():
+    numbers = [4, 8, 2, 6, 1, 9, 5]
+    min_num = numbers[0]
+
+    for num in numbers:
+        if num < min_num:
+            min_num = num
+
+    print(min_num)
+
+find_min_elem()

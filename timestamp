@@ -1,0 +1,35 @@
+# я случайно выполнила задание наоборот
+def time():
+    print("Введите дату  (yyyy/mm/dd  hh:ii:ss)\n")
+
+    timestampp = []
+    for a in input().split():
+        timestampp.append(int(a))
+    print(f"{timestampp[0]}\\{timestampp[1]:02d}\\{timestampp[2]:02d} {timestampp[3]:02d}:{timestampp[4]:02d}:{timestampp[5]:02d}")
+
+    year = timestampp[0]
+    month = timestampp[1]
+    day = timestampp[2]
+    hours = timestampp[3]
+    minutes = timestampp[4]
+    seconds = timestampp[5]
+
+
+    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0: # условие високосности
+        dop_day = year/4
+        d2 = day + 30 * month + (month + 5) * 4 / 7 - 35 + 2 * (month < 3) + year * 365 + dop_day
+    else:
+        d2 = day + 30 * month + (month + 5) * 4 / 7 - 35 + 2 * (month < 3) + year * 365
+
+
+
+# ну тут просто дни плюс месяца переведенные в дни плюс года переведенные в дни с учетом високосности
+
+    d1 = 719051 # 1970 лет и 1 день
+    h = hours * 3600
+    m = minutes * 60
+    delta = d2 - d1 # разница в днях между нашей датой и 1 января 1970
+    seconds_from_jn = delta * 86400 + 43200 + h + m + seconds # секунд прошло с 12:00:00 1 января 1970
+    print("Секунд прошло с 1 января 1970 года:", seconds_from_jn)
+
+time()

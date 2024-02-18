@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+
+{% block content %}
+<p class="btn me-md-2"><a class="btn btn-outline-primary" href="/app/">Back</a></p>
+<p class="btn me-md-2"><a class="btn btn-outline-primary" href="/app/{{ path }}/create">Create</a></p>
+    <ul class="list-group">
+        <table  class="table table-borderless">
+            <tr>
+                {% for name in names %}
+                <td>{{ name }}</td>
+                {% endfor %}
+            </tr>
+        {% for line in products %}
+        <tr>
+            {% for elem in line %}
+                <td>{{ elem }}</td>
+            {% endfor %}
+            
+            <td>
+                <div class="btn-group gap-2">
+                <p><a class="btn btn-outline-primary me-md-2" href="/app/{{ path }}/update/{{ line.0 }}">Update</a></p>
+                <p><a class="btn btn-outline-danger me-md-2" href="/app/{{ path }}/delete/{{ line.0 }}">Delete</a></p>
+                </div>
+            </td>
+
+        </tr>
+        
+        {% endfor %}
+        </table>
+    </ul>
+    
+{% endblock content %}
